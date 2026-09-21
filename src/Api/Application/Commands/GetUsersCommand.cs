@@ -2,5 +2,7 @@
 
 namespace Api.Application.Commands
 {
-    public sealed record GetUsersCommand(Pagination Pagination);
+    public sealed class GetUsersCommand : Pagination 
+    {
+    }
 }

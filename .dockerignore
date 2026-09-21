@@ -3,7 +3,7 @@
 .vs/
 .git/
 .gitignore
+.env
 Dockerfile
-secrets/
 README.md
 

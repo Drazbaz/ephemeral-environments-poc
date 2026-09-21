@@ -9,12 +9,14 @@ namespace Api.Infrastructure.Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder
                 .Entity<User>()
                 .HasData(
                     new User
                     {
-                        Id = Guid.NewGuid(),
+                        Id = Guid.Parse("61d3c5d7-5c15-4907-b196-7ff1d4a9e5af"),
                         Name = "Drazen Gordon" 
                     }
                 );

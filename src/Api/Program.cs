@@ -1,4 +1,5 @@
 using Api.Infrastructure;
+using Api.Infrastructure.Persistance;
 using Api.Presentation.Endpoints;
 
 namespace Api
@@ -12,6 +13,7 @@ namespace Api
             builder.Services.AddInfrastructure(builder.Configuration);
 
             var app = builder.Build();
+            app.MigrateDatabase<ApiDbContext>();
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();

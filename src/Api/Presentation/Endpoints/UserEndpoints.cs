@@ -1,5 +1,6 @@
 ﻿using Api.Application.Commands;
 using Api.Application.Handlers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Presentation.Endpoints
 {
@@ -16,15 +17,15 @@ namespace Api.Presentation.Endpoints
 
         private static async Task<IResult> GetUsersAsync(
             [AsParameters] GetUsersCommand command,
-            GetUsersHandler handler)
+            [FromServices] GetUsersHandler handler)
         {
             var result = await handler.HandleAsync(command);
             return result;
         }
 
         private static async Task<IResult> CreateUserAsync(
-            [AsParameters] CreateUserCommand command,
-            CreateUserHandler handler)
+            [FromBody] CreateUserCommand command,
+            [FromServices] CreateUserHandler handler)
         {
             var result = await handler.HandleAsync(command);
             return result;

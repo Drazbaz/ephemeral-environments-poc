@@ -9,7 +9,7 @@ namespace Api.Application.Handlers
     {
         public async Task<IResult> HandleAsync(GetUsersCommand command)
         {
-            var users = await userRepository.GetUsersAsync(command.Pagination);
+            var users = await userRepository.GetUsersAsync(command);
 
             var data = new PagedResult<UserResponse>
             {
