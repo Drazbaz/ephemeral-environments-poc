@@ -56,7 +56,10 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
-#VS
+# VS
 .vs/
 *.vsidx
 *.user
+
+# DOCKER
+secrets/

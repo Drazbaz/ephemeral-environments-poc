@@ -10,7 +10,7 @@ namespace Api.Infrastructure
         public static IServiceCollection AddInfrastructure(
             this IServiceCollection services,
             IConfiguration configuration)
-        {
+        { 
             services.AddDbContext<ApiDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("Database")));
             services.AddScoped<IUserRepository, UserRepository>();
