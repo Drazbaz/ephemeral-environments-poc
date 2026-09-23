@@ -7,7 +7,7 @@ A proof-of-concept ASP.NET Core API demonstrating:
 - EF Core migrations
 - Repository pattern
 - Unit of Work
-- Test containers (coming next)
+- Test containers
 
 ## Running
 
