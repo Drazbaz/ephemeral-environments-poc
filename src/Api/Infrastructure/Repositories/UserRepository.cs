@@ -14,6 +14,12 @@ namespace Api.Infrastructure.Repositories
             await dbContext.Users.AddAsync(user);
         }
 
+        public async Task<User?> GetUserAsync(Guid userId)
+        {
+            var user = await dbContext.FindAsync<User>(userId);
+            return user;
+        }
+
         public async Task<PagedResult<User>> GetUsersAsync(GetUsersCommand command)
         {
             var users = await dbContext

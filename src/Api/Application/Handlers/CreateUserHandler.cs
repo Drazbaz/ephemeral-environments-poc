@@ -1,5 +1,6 @@
 ﻿using Api.Application.Commands;
 using Api.Application.Interfaces;
+using Api.Application.Responses;
 using Api.Domain.Entities;
 
 namespace Api.Application.Handlers
@@ -16,7 +17,8 @@ namespace Api.Application.Handlers
             await userRepository.AddUserAsync(user);
             await unitOfWork.CommitAsync();
 
-            return TypedResults.Created();
+            var data = UserResponse.FromUser(user);
+            return TypedResults.Created($"/api/user/{data.Id}", data);
         }
     }
 }

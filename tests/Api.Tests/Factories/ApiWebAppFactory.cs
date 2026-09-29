@@ -10,7 +10,7 @@ namespace Api.Tests.Factories
 {
     public sealed class ApiWebAppFactory(PostgreSqlContainerTests fixture) : WebApplicationFactory<Program>
     {
-        private readonly string _connectionString = fixture.PostgresContainer.GetConnectionString();
+        private readonly string _connectionString = fixture.PostgreSqlContainer.GetConnectionString();
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {

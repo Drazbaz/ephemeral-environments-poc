@@ -1,7 +1,7 @@
 ﻿using Api.Application.Commands;
-using Api.Application.Dtos;
 using Api.Application.Interfaces;
 using Api.Application.Models;
+using Api.Application.Responses;
 
 namespace Api.Application.Handlers
 {

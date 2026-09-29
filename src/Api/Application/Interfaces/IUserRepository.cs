@@ -7,6 +7,7 @@ namespace Api.Application.Interfaces
     public interface IUserRepository
     {
         Task AddUserAsync(User user);
+        Task<User?> GetUserAsync(Guid userId);
         Task<PagedResult<User>> GetUsersAsync(GetUsersCommand command);
     }
 }

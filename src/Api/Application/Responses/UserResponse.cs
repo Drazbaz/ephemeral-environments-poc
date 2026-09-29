@@ -1,6 +1,6 @@
 ﻿using Api.Domain.Entities;
 
-namespace Api.Application.Dtos
+namespace Api.Application.Responses
 {
     public sealed record UserResponse(Guid Id, string Name)
     {
