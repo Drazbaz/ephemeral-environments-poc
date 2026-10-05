@@ -5,13 +5,22 @@ services:
       dockerfile: Dockerfile
       target: final
     environment:
-      - DB_USER
-      - DB_PASSWORD
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      ConnectionStrings__Database: "Host=db;Port=5432;Database=dev;Username=${DB_USER};Password=${DB_PASSWORD}"
     ports:
       - 8080:8080
     depends_on:
       db:
         condition: service_healthy
+  web:
+    build:
+      context: ./src/web
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80
+    depends_on:
+      - server
   db:
     image: postgres
     restart: always
