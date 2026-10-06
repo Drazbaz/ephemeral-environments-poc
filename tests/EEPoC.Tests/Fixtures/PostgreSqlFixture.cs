@@ -1,8 +1,8 @@
 ﻿using Testcontainers.PostgreSql;
 
-namespace Api.Tests.Integration
+namespace EEPoC.Tests.Fixtures
 {
-    public sealed class PostgreSqlContainerTests : IAsyncLifetime
+    public sealed class PostgreSqlFixture : IAsyncLifetime
     {
         public PostgreSqlContainer PostgreSqlContainer { get; } = new PostgreSqlBuilder("postgres:latest").Build();
 

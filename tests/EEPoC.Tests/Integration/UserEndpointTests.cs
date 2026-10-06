@@ -1,17 +1,19 @@
-﻿using Api.Application.Commands;
+﻿using Api;
+using Api.Application.Commands;
 using Api.Domain.Entities;
-using Api.Tests.Factories;
+using EEPoC.Tests.Factories;
+using EEPoC.Tests.Fixtures;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net.Http.Json;
 
-namespace Api.Tests.Integration
+namespace EEPoC.Tests.Integration
 {
-    public sealed class UserEndpointTests : IClassFixture<PostgreSqlContainerTests>, IDisposable
+    public sealed class UserEndpointTests : IClassFixture<PostgreSqlFixture>, IDisposable
     {
         private readonly WebApplicationFactory<Program> _webAppFactory;
         private readonly HttpClient _httpClient;
 
-        public UserEndpointTests(PostgreSqlContainerTests fixture)
+        public UserEndpointTests(PostgreSqlFixture fixture)
         {
             _webAppFactory = new ApiWebAppFactory(fixture);
             _httpClient = _webAppFactory.CreateClient(new WebApplicationFactoryClientOptions

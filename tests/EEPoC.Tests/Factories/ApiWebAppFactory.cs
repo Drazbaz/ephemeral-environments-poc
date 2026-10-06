@@ -1,14 +1,15 @@
-﻿using Api.Infrastructure.Persistance;
-using Api.Tests.Integration;
+﻿using Api;
+using Api.Infrastructure.Persistance;
+using EEPoC.Tests.Fixtures;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace Api.Tests.Factories
+namespace EEPoC.Tests.Factories
 {
-    public sealed class ApiWebAppFactory(PostgreSqlContainerTests fixture) : WebApplicationFactory<Program>
+    public sealed class ApiWebAppFactory(PostgreSqlFixture fixture) : WebApplicationFactory<Program>
     {
         private readonly string _connectionString = fixture.PostgreSqlContainer.GetConnectionString();
 
