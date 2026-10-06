@@ -3,7 +3,7 @@
 FROM --platform=$BUILDPLATFORM dhi.io/dotnet:10-sdk AS build
 ARG TARGETARCH
 COPY . /source
-WORKDIR /source/src/Api
+WORKDIR /source
 RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
     dotnet publish -a ${TARGETARCH/amd64/x64} --use-current-runtime --self-contained false -o /app
 

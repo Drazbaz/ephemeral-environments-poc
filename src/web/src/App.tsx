@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useState, type SubmitEvent } from 'react'
 import './App.css'
 
 type User = {
@@ -11,7 +11,7 @@ type UserPage = {
   hasMore: boolean
 }
 
-const pageSize = 25
+const pageSize = 5
 
 async function fetchUsers(offset: number): Promise<UserPage> {
   const response = await fetch(`/api/user/?offset=${offset}&limit=${pageSize}`)
@@ -68,7 +68,7 @@ function App() {
     }
   }, [])
 
-  async function handleCreateUser(event: FormEvent<HTMLFormElement>) {
+  async function handleCreateUser(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
     setSubmitting(true)
     setError('')
