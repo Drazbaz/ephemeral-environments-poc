@@ -7,6 +7,6 @@
     </Project>
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests/Api.Tests/Api.Tests.csproj" />
+    <Project Path="tests/EEPoC.Tests/EEPoC.Tests.csproj" />
   </Folder>
 </Solution>

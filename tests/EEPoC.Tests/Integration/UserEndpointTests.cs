@@ -8,15 +8,16 @@ using System.Net.Http.Json;
 
 namespace EEPoC.Tests.Integration
 {
+    [Trait("Category", "Integration")]
     public sealed class UserEndpointTests : IClassFixture<PostgreSqlFixture>, IDisposable
     {
-        private readonly WebApplicationFactory<Program> _webAppFactory;
+        private readonly WebApplicationFactory<Program> _apiFactory;
         private readonly HttpClient _httpClient;
 
         public UserEndpointTests(PostgreSqlFixture fixture)
         {
-            _webAppFactory = new ApiWebAppFactory(fixture);
-            _httpClient = _webAppFactory.CreateClient(new WebApplicationFactoryClientOptions
+            _apiFactory = new ApiFactory(fixture);
+            _httpClient = _apiFactory.CreateClient(new WebApplicationFactoryClientOptions
             {
                 AllowAutoRedirect = false
             });
@@ -41,7 +42,7 @@ namespace EEPoC.Tests.Integration
 
         public void Dispose()
         {
-            _webAppFactory.Dispose();
+            _apiFactory.Dispose();
         }
     }
 }

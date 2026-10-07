@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace EEPoC.Tests.Factories
 {
-    public sealed class ApiWebAppFactory(PostgreSqlFixture fixture) : WebApplicationFactory<Program>
+    public sealed class ApiFactory(PostgreSqlFixture fixture) : WebApplicationFactory<Program>
     {
         private readonly string _connectionString = fixture.PostgreSqlContainer.GetConnectionString();
 

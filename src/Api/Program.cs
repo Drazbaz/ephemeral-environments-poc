@@ -21,6 +21,7 @@ namespace Api
             app.UseHttpsRedirection();
 
             var api = app.MapGroup("/api");
+            api.MapGet("/health", () => Results.Ok());
             UserEndpoints.Map(api);
 
             app.Run();
